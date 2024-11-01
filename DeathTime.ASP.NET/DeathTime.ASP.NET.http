@@ -1,0 +1,6 @@
+@DeathTime.ASP.NET_HostAddress = http://localhost:5024
+
+GET {{DeathTime.ASP.NET_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
