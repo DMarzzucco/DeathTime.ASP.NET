@@ -1,23 +1,40 @@
-﻿using DeathTime.ASP.NET.Context;
+﻿using AutoMapper;
+using DeathTime.ASP.NET.Context;
 using DeathTime.ASP.NET.User.DTOs;
 using DeathTime.ASP.NET.User.Interfaces;
 using DeathTime.ASP.NET.User.Model;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Server.IIS;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DeathTime.ASP.NET.User.Services
 {
     public class UserServices : IUserServicesImpl
     {
         private readonly AppDbContext _context;
-        public UserServices(AppDbContext context)
+        private readonly IMapper _mapper;
+
+        public UserServices(
+            AppDbContext context,
+            IMapper mapper
+            )
         {
             _context = context;
+            _mapper = mapper;
         }
 
         //GetAll
         public async Task<IEnumerable<UserModel>> GetAll()
         {
-            return await _context.UserModel.ToListAsync();
+            IEnumerable<UserModel> data = await _context.UserModel.ToListAsync();
+            if (!data.Any())
+            {
+                return null;
+            }
+            return data;
         }
 
         //Get by id
@@ -34,14 +51,21 @@ namespace DeathTime.ASP.NET.User.Services
         //Create a User
         public async Task<UserModel> CreateUser(CreateUserDTO user)
         {
-            var data = new UserModel
+            if (await this._context.UserModel.AnyAsync(u => u.Name == user.Name))
             {
-                Name = user.Name,
-                Age = user.Age,
-                Email = user.Email
-            };
+                throw new Exception("This Username already exists");
+            }
+
+            if (await this._context.UserModel.AnyAsync(u=> u.Email == user.Email))
+            {
+                throw new Exception("This Email already exists");
+            }
+
+            var data = this._mapper.Map<UserModel>(user);
+
             _context.UserModel.Add(data);
             await _context.SaveChangesAsync();
+
             return data;
         }
 
@@ -51,10 +75,10 @@ namespace DeathTime.ASP.NET.User.Services
             var data = await this._context.UserModel.FindAsync(id);
             if (data == null)
             {
-                return false;
+                throw new KeyNotFoundException($"Person with {id}not found");
             }
 
-            CopyProperties(user, data);
+            this._mapper.Map(user, data);
 
             _context.Entry(data).State = EntityState.Modified;
             await this._context.SaveChangesAsync();
@@ -72,24 +96,6 @@ namespace DeathTime.ASP.NET.User.Services
             this._context.UserModel.Remove(data);
             await this._context.SaveChangesAsync();
             return true;
-        }
-
-        public static void CopyProperties<TSource, TTarget>(TSource source, TTarget target)
-        {
-            var sourceProperties = typeof(TSource).GetProperties();
-            var targetProperties = typeof(TTarget).GetProperties();
-
-            foreach (var property in sourceProperties)
-            {
-                var targetProperty = targetProperties.FirstOrDefault(
-                    p => p.Name == property.Name && p.PropertyType == property.PropertyType
-                    );
-
-                if (targetProperty != null && targetProperty.CanWrite)
-                {
-                    targetProperty.SetValue(target, property.GetValue(source));
-                }
-            }
         }
     }
 }

@@ -9,5 +9,16 @@ namespace DeathTime.ASP.NET.Context
         {
         }
         public DbSet<UserModel> UserModel { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelbuilder)
+        {
+            modelbuilder.Entity<UserModel>()
+                .HasIndex(u => u.Email)
+                .IsUnique();
+
+            modelbuilder.Entity<UserModel>()
+                .HasIndex(u => u.Name)
+                .IsUnique();
+        }
     }
 }

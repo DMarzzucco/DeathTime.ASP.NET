@@ -1,7 +1,10 @@
+using AutoMapper;
 using DeathTime.ASP.NET.Context;
 using DeathTime.ASP.NET.Filters;
+using DeathTime.ASP.NET.Mapper;
 using DeathTime.ASP.NET.User.Services;
 using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +28,30 @@ builder.Services.AddScoped<UserServices>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Cors Policy
+builder.Services.AddCors(o =>
+{
+    o.AddPolicy("DeathTimerCors", b =>
+    {
+        b.WithOrigins("http://localhost:3000")
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials();
+    });
+});
+
+//mapper
+var mappConfig = new MapperConfiguration(m =>
+{
+    m.AddProfile<MappingProfile>();
+});
+IMapper mapper = mappConfig.CreateMapper();
+
+builder.Services.AddSingleton(mapper);
+builder.Services.AddMvc();
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -35,6 +62,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("DeathTimerCors");
 
 app.UseAuthorization();
 
