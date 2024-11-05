@@ -29,12 +29,7 @@ namespace DeathTime.ASP.NET.User.Services
         //GetAll
         public async Task<IEnumerable<UserModel>> GetAll()
         {
-            IEnumerable<UserModel> data = await _context.UserModel.ToListAsync();
-            if (!data.Any())
-            {
-                return null;
-            }
-            return data;
+            return await _context.UserModel.ToListAsync();
         }
 
         //Get by id
@@ -56,7 +51,7 @@ namespace DeathTime.ASP.NET.User.Services
                 throw new Exception("This Username already exists");
             }
 
-            if (await this._context.UserModel.AnyAsync(u=> u.Email == user.Email))
+            if (await this._context.UserModel.AnyAsync(u => u.Email == user.Email))
             {
                 throw new Exception("This Email already exists");
             }

@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-
   db:
     image: postgres
     container_name: data_base_pg
@@ -14,3 +13,18 @@ services:
       - "5432:5432"
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  web:
+    build: ./DeathTime.ASP.NET
+    container_name: dotnet_app
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=Server=db;Port=5432;Database=data_base;User Id=user;Password=password;
+    ports:
+      - "5024:5024"
+    depends_on:
+      - db
+    command: ["/usr/local/bin/wait-for-it", "db:5432", "--timeout=60", "--strict", "--", "dotnet", "DeathTime.ASP.NET.dll"]
+
+

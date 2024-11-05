@@ -31,15 +31,16 @@ namespace DeathTime.ASP.NET.User.Controller
         [HttpPost]
         public async Task<ActionResult<UserModel>> CreateUser(CreateUserDTO user)
         {
-            try 
+            try
             {
                 var body = await this._service.CreateUser(user);
                 return CreatedAtAction(nameof(GetAllUser), new { id = body.Id }, body);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 return Conflict(ex.Message);
             }
-      
+
         }
         //Update user by Id Mapping 
         [HttpPut("{id}")]

@@ -2,6 +2,7 @@ using AutoMapper;
 using DeathTime.ASP.NET.Context;
 using DeathTime.ASP.NET.Filters;
 using DeathTime.ASP.NET.Mapper;
+using DeathTime.ASP.NET.MIddleware;
 using DeathTime.ASP.NET.User.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -50,7 +51,8 @@ IMapper mapper = mappConfig.CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddMvc();
 
-
+// port listen
+builder.WebHost.UseUrls("http://*:5024");
 
 var app = builder.Build();
 
@@ -60,8 +62,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseMiddleware<DeathTimerMid>();
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 
 app.UseCors("DeathTimerCors");
 
