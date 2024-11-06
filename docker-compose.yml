@@ -14,17 +14,29 @@ services:
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
 
-  web:
-    build: ./DeathTime.ASP.NET
-    container_name: dotnet_app
-    restart: always
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Production
-      - ConnectionStrings__DefaultConnection=Server=db;Port=5432;Database=data_base;User Id=user;Password=password;
-    ports:
-      - "5024:5024"
-    depends_on:
-      - db
-    command: ["/usr/local/bin/wait-for-it", "db:5432", "--timeout=60", "--strict", "--", "dotnet", "DeathTime.ASP.NET.dll"]
+  # migrations:
+  #   image: mcr.microsoft.com/dotnet/sdk:8.0
+  #   working_dir: /App
+  #   volumes:
+  #     - ./DeathTime.ASP.NET:/App
+  #   environment:
+  #     - ConnectionStrings__DefaultConnection=Server=db;Port=5432;Database=data_base;User Id=user;Password=password;
+  #   depends_on:
+  #     - db
+  #   entrypoint: ["sh", "-c", "dotnet tool install --global dotnet-ef && export PATH=\"$PATH:/root/.dotnet/tools\" && dotnet-ef database update"]
+
+  # web:
+  #   build: ./DeathTime.ASP.NET
+  #   container_name: dotnet_app
+  #   restart: always
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Production
+  #     - ConnectionStrings__DefaultConnection=Server=db;Port=5432;Database=data_base;User Id=user;Password=password;
+  #   ports:
+  #     - "5024:5024"
+  #   depends_on:
+  #     - db
+  #     - migrations
+  #   command: ["dotnet", "DeathTime.ASP.NET.dll"]
 
 

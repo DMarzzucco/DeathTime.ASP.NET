@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("c7891639-a86f-43c2-aabd-47035ae21c8a")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("DeathTime.ASP.NET")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee6b38ffbd117f3f227803db912554b7a94263aa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+61e4a852bbda97a35ea3ae3da74633ef51fdb7bb")]
 [assembly: System.Reflection.AssemblyProductAttribute("DeathTime.ASP.NET")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DeathTime.ASP.NET")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,6 +1,6 @@
 ﻿using DeathTime.ASP.NET.User.DTOs;
 using DeathTime.ASP.NET.User.Model;
-using DeathTime.ASP.NET.User.Services;
+using DeathTime.ASP.NET.User.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeathTime.ASP.NET.User.Controller
@@ -9,8 +9,8 @@ namespace DeathTime.ASP.NET.User.Controller
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly UserServices _service;
-        public UserController(UserServices service)
+        private readonly IUserServicesImpl _service;
+        public UserController(IUserServicesImpl service)
         {
             _service = service;
         }
@@ -25,7 +25,15 @@ namespace DeathTime.ASP.NET.User.Controller
         [HttpGet("{id}")]
         public async Task<ActionResult<UserModel>> GetUserById(int id)
         {
-            return await this._service.GetById(id);
+            try
+            {
+                var user = await this._service.GetById(id);
+                return Ok(user);
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
         }
         //Create Mapping 
         [HttpPost]

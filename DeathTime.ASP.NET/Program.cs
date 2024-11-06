@@ -4,6 +4,7 @@ using DeathTime.ASP.NET.Filters;
 using DeathTime.ASP.NET.Mapper;
 using DeathTime.ASP.NET.MIddleware;
 using DeathTime.ASP.NET.User.Services;
+using DeathTime.ASP.NET.User.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -23,7 +24,7 @@ builder.Services.AddControllers(options =>
 });
 
 // Register Services
-builder.Services.AddScoped<UserServices>();
+builder.Services.AddScoped<IUserServicesImpl, UserServices>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

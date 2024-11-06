@@ -1,26 +1,21 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /App
 
+# Copy and Restore as distinct layers
 COPY *.csproj ./
-# Restore as distinct layers
 RUN dotnet restore
 
 # Copy everything
-COPY . .
+COPY . ./
+
 # Build and publish a release
 RUN dotnet publish -c Release -o out
 
-# Intall Tools dotnet-ef
-RUN dotnet tool install --global dotnet-ef
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /App
 
-# Intall curl and download wait-for.it.sh
-RUN apt-get update && apt-get install -y curl && \
-    curl -o /usr/local/bin/wait-for-it https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh && \
-    chmod +x /usr/local/bin/wait-for-it
 
 # Copy all files 
 COPY --from=build-env /App/out .
@@ -28,8 +23,4 @@ COPY --from=build-env /App/out .
 # PORT
 EXPOSE 5024
 
-# Añadir el directorio de herramientas globales al PATH
-ENV PATH="${PATH}:/root/.dotnet/tools"
-
-#ENTRYPOINT ["dotnet", "DeathTime.ASP.NET.dll"]
-ENTRYPOINT ["/bin/sh", "-c", "/usr/local/bin/wait-for-it db:5432 --timeout=60 --strict -- dotnet ef database update && dotnet DeathTime.ASP.NET.dll"]
+ENTRYPOINT ["dotnet", "DeathTime.ASP.NET.dll"]

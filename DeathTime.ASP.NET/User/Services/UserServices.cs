@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using DeathTime.ASP.NET.Context;
 using DeathTime.ASP.NET.User.DTOs;
-using DeathTime.ASP.NET.User.Interfaces;
 using DeathTime.ASP.NET.User.Model;
+using DeathTime.ASP.NET.User.Services.Interfaces;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Server.IIS;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
