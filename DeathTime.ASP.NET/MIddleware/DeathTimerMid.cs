@@ -27,7 +27,7 @@ namespace DeathTime.ASP.NET.MIddleware
             try
             {
                 var currenTime = DateTime.Now;
-                var deathTimer = DateTime.ParseExact("2025-11-05T14:05:00", "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None);
+                var deathTimer = DateTime.ParseExact("0000-00-00T00:00:00", "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None);
 
                 if (currenTime > deathTimer)
                 {
