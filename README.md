@@ -6,7 +6,7 @@ This is an example of how the Death Time middleware works in ASP.NET.
 
 Before testing the application, it is recommended to check the source code to configure the counter. The soruce code is located at: `./DeathTime.ASP.NET/Middleware/DeathTimerMid.cs`. 
 
-```TS 
+```cs
 var deathTimer = DateTime.ParseExact("0000-00-00T00:00:00", "yyyy-MM-ddTHH:mm:ss", ...);
 ```
 
@@ -39,7 +39,7 @@ dotnet Run
 
 ## Documentation
 
-The server code is documented in Swagger. You can acces it at [localhost:3001/docs](http://localhost:5024/Swagger/)
+The server code is documented in Swagger. You can access it at [localhost:3001/docs](http://localhost:5024/Swagger/)
 
 
 ## Author
