@@ -39,7 +39,7 @@ dotnet Run
 
 ## Documentation
 
-The server code is documented in Swagger. You can access it at [localhost:3001/docs](http://localhost:5024/Swagger/)
+The server code is documented in Swagger. You can access it at [http://localhost:5024/Swagger/](http://localhost:5024/Swagger/)
 
 
 ## Author
