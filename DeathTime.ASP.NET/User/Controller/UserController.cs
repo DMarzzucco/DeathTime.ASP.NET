@@ -25,49 +25,28 @@ namespace DeathTime.ASP.NET.User.Controller
         [HttpGet("{id}")]
         public async Task<ActionResult<UserModel>> GetUserById(int id)
         {
-            try
-            {
-                var user = await this._service.GetById(id);
-                return Ok(user);
-            }
-            catch (KeyNotFoundException)
-            {
-                return NotFound();
-            }
+            var user = await this._service.GetById(id);
+            return Ok(user);
         }
         //Create Mapping 
         [HttpPost]
         public async Task<ActionResult<UserModel>> CreateUser(CreateUserDTO user)
         {
-            try
-            {
-                var body = await this._service.CreateUser(user);
-                return CreatedAtAction(nameof(GetAllUser), new { id = body.Id }, body);
-            }
-            catch (Exception ex)
-            {
-                return Conflict(ex.Message);
-            }
-
+            var body = await this._service.CreateUser(user);
+            return CreatedAtAction(nameof(GetAllUser), new { id = body.Id }, body);
         }
         //Update user by Id Mapping 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, UpdateUserDTO user)
         {
-            if (!await this._service.UpdateUser(id, user))
-            {
-                return NotFound();
-            }
+            await this._service.UpdateUser(id, user);
             return NoContent();
         }
         //Delete user by Id Mapping 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
-            if (!await this._service.DeleteUser(id))
-            {
-                return NotFound();
-            }
+            await this._service.DeleteUser(id);
             return NoContent();
         }
 

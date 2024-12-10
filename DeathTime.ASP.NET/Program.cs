@@ -26,6 +26,7 @@ builder.Services.AddControllers(options =>
 });
 
 // Register Services
+builder.Services.AddScoped<GlobalFilterExceptions>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserServicesImpl, UserServices>();
 

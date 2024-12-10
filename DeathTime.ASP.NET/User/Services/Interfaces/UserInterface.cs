@@ -11,8 +11,8 @@ namespace DeathTime.ASP.NET.User.Services.Interfaces
 
         Task<UserModel> CreateUser(CreateUserDTO user);
 
-        Task<bool> UpdateUser(int id, UpdateUserDTO user);
+        Task<UserModel> UpdateUser(int id, UpdateUserDTO user);
 
-        Task<bool> DeleteUser(int id);
+        Task DeleteUser(int id);
     }
 }
