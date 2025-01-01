@@ -22,14 +22,13 @@ var deathTimer = DateTime.ParseExact("0000-00-00T00:00:00", "yyyy-MM-ddTHH:mm:ss
 #Start Data Base
 docker-compose up db
 
-#Create a Migrations
-Add-Migration Initial
+# in .\\
 
-#Update the database
-Update-Database
+# start the entities in date base
+$ dotnet ef database update
 
-#RunApp
-dotnet Run
+# start the server
+$ dotnet run
 
 ```
 
