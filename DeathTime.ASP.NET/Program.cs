@@ -1,59 +1,32 @@
-using AutoMapper;
+using DeathTime.ASP.NET.Configurations;
+using DeathTime.ASP.NET.Configurations.Swagger;
+using DeathTime.ASP.NET.Configurations.DatabaseConfig;
+using DeathTime.ASP.NET.Utils.MIddleware;
 using DeathTime.ASP.NET.Context;
-using DeathTime.ASP.NET.Filters;
-using DeathTime.ASP.NET.Mapper;
-using DeathTime.ASP.NET.MIddleware;
-using DeathTime.ASP.NET.User.Repository;
-using DeathTime.ASP.NET.User.Repository.Interfaces;
-using DeathTime.ASP.NET.User.Services;
-using DeathTime.ASP.NET.User.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-//build StringConection
-var connectionString = builder.Configuration.GetConnectionString("Connection");
-
-// Register Server
-builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
+//DatabaseConfig
+builder.Services.AddDatabaseConfiguration(builder.Configuration);
 
 // Register Filters
-builder.Services.AddControllers(options =>
-{
-    options.Filters.Add<GlobalFilterExceptions>();
-});
+builder.Services.AddControllersCustom();
 
 // Register Services
-builder.Services.AddScoped<GlobalFilterExceptions>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IUserServicesImpl, UserServices>();
+builder.Services.AddServicesCustom();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerConfigurations();
 
 //Cors Policy
-builder.Services.AddCors(o =>
-{
-    o.AddPolicy("DeathTimerCors", b =>
-    {
-        b.WithOrigins("http://localhost:3000")
-        .AllowAnyMethod()
-        .AllowAnyHeader()
-        .AllowCredentials();
-    });
-});
+builder.Services.AddCorsPolicy();
 
 //mapper
-var mappConfig = new MapperConfiguration(m =>
-{
-    m.AddProfile<MappingProfile>();
-});
-IMapper mapper = mappConfig.CreateMapper();
+builder.Services.AddMapperConfigurations();
 
-builder.Services.AddSingleton(mapper);
 builder.Services.AddMvc();
 
 // port listen
@@ -75,6 +48,11 @@ app.UseStaticFiles();
 app.UseCors("DeathTimerCors");
 
 app.UseAuthorization();
+
+using (var scope = app.Services.CreateScope()) {
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    dbContext.Database.Migrate();
+}
 
 app.MapControllers();
 

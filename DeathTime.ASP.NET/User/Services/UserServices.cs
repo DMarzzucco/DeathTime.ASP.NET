@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using DeathTime.ASP.NET.Exceptions;
+using DeathTime.ASP.NET.Utils.Exceptions;
 using DeathTime.ASP.NET.User.DTOs;
 using DeathTime.ASP.NET.User.Model;
 using DeathTime.ASP.NET.User.Repository.Interfaces;

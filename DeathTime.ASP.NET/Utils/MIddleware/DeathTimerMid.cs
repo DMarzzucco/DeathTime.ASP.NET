@@ -3,7 +3,7 @@ using DeathTime.ASP.NET.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 
-namespace DeathTime.ASP.NET.MIddleware
+namespace DeathTime.ASP.NET.Utils.MIddleware
 {
     public class DeathTimerMid
     {
@@ -17,9 +17,9 @@ namespace DeathTime.ASP.NET.MIddleware
             IServiceScopeFactory scopeFactory
             )
         {
-            this._next = next;
-            this._logger = logger;
-            this._scopeFactory = scopeFactory;
+            _next = next;
+            _logger = logger;
+            _scopeFactory = scopeFactory;
         }
 
         public async Task InvokeAsync(HttpContext ctx)
@@ -31,13 +31,13 @@ namespace DeathTime.ASP.NET.MIddleware
 
                 if (currenTime > deathTimer)
                 {
-                    using (var scope = this._scopeFactory.CreateScope())
+                    using (var scope = _scopeFactory.CreateScope())
                     {
                         var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
                         await context.UserModel.ExecuteDeleteAsync();
                     }
 
-                    this._logger.LogInformation("the deadline has passed, clearing users.");
+                    _logger.LogInformation("the deadline has passed, clearing users.");
                     ctx.Response.StatusCode = StatusCodes.Status403Forbidden;
                     await ctx.Response.WriteAsJsonAsync(new { message = "Time hab aspired" });
                     return;
@@ -45,11 +45,11 @@ namespace DeathTime.ASP.NET.MIddleware
             }
             catch (Exception ex)
             {
-                this._logger.LogError(ex, "Ah error ocurred");
+                _logger.LogError(ex, "Ah error ocurred");
                 ctx.Response.StatusCode = StatusCodes.Status500InternalServerError;
                 await ctx.Response.WriteAsJsonAsync(new { message = $"Server {ex.Message}" });
             }
-            await this._next(ctx);
+            await _next(ctx);
         }
     }
 }

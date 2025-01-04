@@ -1,4 +1,4 @@
-﻿namespace DeathTime.ASP.NET.Exceptions
+﻿namespace DeathTime.ASP.NET.Utils.Exceptions
 {
     public class ConflictExceptions : Exception
     {
@@ -9,9 +9,9 @@
     }
     public class BadRequestExceptions : Exception
     {
-        public BadRequestExceptions(string message):base(message)
+        public BadRequestExceptions(string message) : base(message)
         {
-            
+
         }
     }
 }

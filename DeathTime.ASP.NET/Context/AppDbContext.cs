@@ -1,4 +1,5 @@
-﻿using DeathTime.ASP.NET.User.Model;
+﻿using DeathTime.ASP.NET.Context.Configuration;
+using DeathTime.ASP.NET.User.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace DeathTime.ASP.NET.Context
@@ -12,13 +13,8 @@ namespace DeathTime.ASP.NET.Context
 
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
-            modelbuilder.Entity<UserModel>()
-                .HasIndex(u => u.Email)
-                .IsUnique();
-
-            modelbuilder.Entity<UserModel>()
-                .HasIndex(u => u.Name)
-                .IsUnique();
+            modelbuilder.ApplyConfiguration(new UserModelConfiguration());
+            base.OnModelCreating(modelbuilder);
         }
     }
 }
