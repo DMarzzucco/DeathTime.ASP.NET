@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DeathTimeTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+feecc872a037a247d03a97fdc5dbb0aecafa9acd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d901a515215f709197d123ca469dab60cc5c2a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("DeathTimeTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DeathTimeTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

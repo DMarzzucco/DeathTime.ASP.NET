@@ -11,13 +11,13 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("c7891639-a86f-43c2-aabd-47035ae21c8a")]
-[assembly: System.Reflection.AssemblyCompanyAttribute("DeathTime.ASP.NET")]
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("a45b4311-7c0f-4dce-8621-b88dbd8ce2e8")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("SRC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d901a515215f709197d123ca469dab60cc5c2a8")]
-[assembly: System.Reflection.AssemblyProductAttribute("DeathTime.ASP.NET")]
-[assembly: System.Reflection.AssemblyTitleAttribute("DeathTime.ASP.NET")]
+[assembly: System.Reflection.AssemblyProductAttribute("SRC")]
+[assembly: System.Reflection.AssemblyTitleAttribute("SRC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
