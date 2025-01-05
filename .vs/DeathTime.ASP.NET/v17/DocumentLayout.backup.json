@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\darmarzrold\\source\\repos\\DeathTime.ASP.NET\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9905E8A9-0921-44B9-A7EF-6D6705F8722B}|SRC\\SRC.csproj|c:\\users\\darmarzrold\\source\\repos\\deathtime.asp.net\\src\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{9905E8A9-0921-44B9-A7EF-6D6705F8722B}|SRC\\SRC.csproj|solutionrelative:src\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5A5C363A-A3CA-4EAF-96C1-07708AF89830}|DeathTime.ASP.NET\\DeathTime.ASP.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\deathtime.asp.net\\deathtime.asp.net\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{5A5C363A-A3CA-4EAF-96C1-07708AF89830}|DeathTime.ASP.NET\\DeathTime.ASP.NET.csproj|solutionrelative:deathtime.asp.net\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
@@ -38,8 +42,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 710,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\DeathTime.ASP.NET\\SRC\\Dockerfile",
+              "RelativeDocumentMoniker": "SRC\\Dockerfile",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\DeathTime.ASP.NET\\SRC\\Dockerfile",
+              "RelativeToolTip": "SRC\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvw4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-05T14:34:01.591Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -66,20 +83,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Dockerfile",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\DeathTime.ASP.NET\\DeathTime.ASP.NET\\Dockerfile",
               "RelativeDocumentMoniker": "DeathTime.ASP.NET\\Dockerfile",
               "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\DeathTime.ASP.NET\\DeathTime.ASP.NET\\Dockerfile",
               "RelativeToolTip": "DeathTime.ASP.NET\\Dockerfile",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-01-05T14:10:43.213Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\DeathTime.ASP.NET\\DeathTime.ASP.NET\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "DeathTime.ASP.NET\\Properties\\launchSettings.json",
@@ -87,12 +104,11 @@
               "RelativeToolTip": "DeathTime.ASP.NET\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-05T14:07:06.488Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-05T14:07:06.488Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "DeathTimerMid.cs",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\DeathTime.ASP.NET\\DeathTime.ASP.NET\\Utils\\MIddleware\\DeathTimerMid.cs",
               "RelativeDocumentMoniker": "DeathTime.ASP.NET\\Utils\\MIddleware\\DeathTimerMid.cs",
@@ -100,12 +116,11 @@
               "RelativeToolTip": "DeathTime.ASP.NET\\Utils\\MIddleware\\DeathTimerMid.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-05T14:04:28.648Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-05T14:04:28.648Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\DeathTime.ASP.NET\\DeathTime.ASP.NET\\appsettings.json",
               "RelativeDocumentMoniker": "DeathTime.ASP.NET\\appsettings.json",
@@ -113,12 +128,11 @@
               "RelativeToolTip": "DeathTime.ASP.NET\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-05T12:22:09.148Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-05T12:22:09.148Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "UserModelConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\DeathTime.ASP.NET\\DeathTime.ASP.NET\\Context\\Configuration\\UserModelConfiguration.cs",
               "RelativeDocumentMoniker": "DeathTime.ASP.NET\\Context\\Configuration\\UserModelConfiguration.cs",
@@ -130,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "SwaggerSchemaExampleFilter.cs",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\DeathTime.ASP.NET\\DeathTime.ASP.NET\\Configurations\\Swagger\\Filter\\SwaggerSchemaExampleFilter.cs",
               "RelativeDocumentMoniker": "DeathTime.ASP.NET\\Configurations\\Swagger\\Filter\\SwaggerSchemaExampleFilter.cs",
@@ -138,12 +152,11 @@
               "RelativeToolTip": "DeathTime.ASP.NET\\Configurations\\Swagger\\Filter\\SwaggerSchemaExampleFilter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvxgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T15:28:29.725Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-04T15:28:29.725Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "SwaggerConfigurations.cs",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\DeathTime.ASP.NET\\DeathTime.ASP.NET\\Configurations\\Swagger\\SwaggerConfigurations.cs",
               "RelativeDocumentMoniker": "DeathTime.ASP.NET\\Configurations\\Swagger\\SwaggerConfigurations.cs",

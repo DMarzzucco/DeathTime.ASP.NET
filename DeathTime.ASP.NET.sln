@@ -5,7 +5,9 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeathTime.ASP.NET", "DeathTime.ASP.NET\DeathTime.ASP.NET.csproj", "{5A5C363A-A3CA-4EAF-96C1-07708AF89830}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeathTimeTest", "DeathTimeTest\DeathTimeTest.csproj", "{6501784F-48F9-4646-96CE-9E8FCE761887}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeathTimeTest", "DeathTimeTest\DeathTimeTest.csproj", "{6501784F-48F9-4646-96CE-9E8FCE761887}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SRC", "SRC\SRC.csproj", "{9905E8A9-0921-44B9-A7EF-6D6705F8722B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6501784F-48F9-4646-96CE-9E8FCE761887}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6501784F-48F9-4646-96CE-9E8FCE761887}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6501784F-48F9-4646-96CE-9E8FCE761887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9905E8A9-0921-44B9-A7EF-6D6705F8722B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9905E8A9-0921-44B9-A7EF-6D6705F8722B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9905E8A9-0921-44B9-A7EF-6D6705F8722B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9905E8A9-0921-44B9-A7EF-6D6705F8722B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
