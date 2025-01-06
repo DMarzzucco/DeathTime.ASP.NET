@@ -16,16 +16,16 @@ services:
     networks:
       - compose-bridge
 
-  d_t_server:
+  server:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=5024
       - ASPNETCORE_HTTPS_PORTS=5024
     container_name: death_time.net
-    image: ${DOCKER_REGISTRY-} death_time.asp.net
+    image: ${DOCKER_REGISTRY-}d_t_source
     build:
       context: .
-      dockerfile: DeathTime.ASP.NET/Dockerfile
+      dockerfile: D_T_Source/Dockerfile
     ports:
       - "5024:5024"
     networks:
