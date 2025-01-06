@@ -4,7 +4,7 @@ This is an example of how the Death Time middleware works in ASP.NET.
 
 ## Before Installation
 
-Before testing the application, it is recommended to check the source code to configure the counter. The soruce code is located at: `./DeathTime.ASP.NET/Middleware/DeathTimerMid.cs`. 
+Before testing the application, it is recommended to check the source code to configure the counter. The soruce code is located at: `./D_T_Source/Utils/Middleware/DeathTimerMid.cs`. 
 
 ```cs
 var deathTimer = DateTime.ParseExact("0000-00-00T00:00:00", "yyyy-MM-ddTHH:mm:ss", ...);
@@ -12,20 +12,22 @@ var deathTimer = DateTime.ParseExact("0000-00-00T00:00:00", "yyyy-MM-ddTHH:mm:ss
 
 # Requirements
 
-* Docker [Docker-Desktop](https://www.docker.com/products/docker-desktop/)
-* .NET 8.0  [.NET](https://dotnet.microsoft.com/es-es/download)
+* [Docker-Desktop](https://www.docker.com/products/docker-desktop/)
+* [.NET 8.0](https://dotnet.microsoft.com/es-es/download) Optional
 
 ## Installation
+
+```bash
+$ docker-compose up
+```
+## Installation in Local Machine
 
 ```bash
 
 #Start Data Base
 docker-compose up db
 
-# in .\DeathTime.ASP.NET\
-
-# start the entities in date base
-$ dotnet ef database update
+# in .\D_T_Source\
 
 # start the server
 $ dotnet run

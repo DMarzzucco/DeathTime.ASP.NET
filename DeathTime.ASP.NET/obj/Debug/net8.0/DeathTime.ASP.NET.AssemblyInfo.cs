@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DeathTime.ASP.NET")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d901a515215f709197d123ca469dab60cc5c2a8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+472256e4eb795e829758d544f470925c299c81f6")]
 [assembly: System.Reflection.AssemblyProductAttribute("DeathTime.ASP.NET")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DeathTime.ASP.NET")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
