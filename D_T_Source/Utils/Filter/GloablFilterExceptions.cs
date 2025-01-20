@@ -35,7 +35,8 @@ namespace D_T_Source.Utils.Filter
                     409 => context.Exception.Message,
                     _ => context.Exception.Message,
                 },
-                Details = statusCodes == 500 ? context.Exception.Message : null
+                Details = statusCode == 500 ?
+                ctx.Exception.InnerException?.Message : null
             };
             context.Result = new ObjectResult(response) { StatusCode = statusCodes };
             context.ExceptionHandled = true;
